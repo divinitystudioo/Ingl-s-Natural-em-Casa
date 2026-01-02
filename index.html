@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inglês Natural em Casa - Guia para Pais</title>
+    
+    <!-- 1. CSS (Tailwind via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Biblioteca de Animação (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Fontes (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configurações Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#FDFBF7',
+                        sage: '#6B9080',
+                        sageLight: '#8FA89B',
+                        sageDark: '#557565',
+                        sand: '#E6C79C',
+                        dark: '#2D3748',
+                        grayText: '#5A5A5A'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { -webkit-font-smoothing: antialiased; }
+        ::selection { background-color: #D4E2D4; }
+        
+        /* Efeito de brilho no botão */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            100% { left: 200%; }
+        }
+    </style>
+</head>
+<body class="bg-cream text-dark font-sans min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="w-full py-5 px-6 md:px-10 border-b border-[#EAEAEA]/60 bg-[#FDFBF7]/90 backdrop-blur-md sticky top-0 z-50 flex justify-between items-center transition-all duration-300" data-aos="fade-down">
+        <div class="text-lg md:text-xl font-semibold tracking-wide text-sage flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+            <i data-lucide="sun" class="w-6 h-6 text-sand fill-current"></i>
+            Inglês Natural em Casa
+        </div>
+        <button onclick="goToCheckout()" class="hidden md:flex bg-sage hover:bg-sageDark text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-md hover:shadow-lg items-center gap-2 transform hover:-translate-y-0.5">
+            Acessar o guia
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section Renovada (Com Imagem da Capa) -->
+    <header class="max-w-6xl mx-auto px-6 py-12 md:py-24">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            
+            <!-- Coluna de Texto -->
+            <div class="text-center md:text-left order-2 md:order-1">
+                <div data-aos="fade-up" data-aos-delay="100" class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 bg-[#E8F1F2] text-[#5C8D94] rounded-full text-xs md:text-sm font-bold tracking-wide uppercase">
+                    <i data-lucide="baby" class="w-4 h-4"></i>
+                    Para crianças de 0 a 6 anos
+                </div>
+                
+                <h1 data-aos="fade-up" data-aos-delay="200" class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-dark mb-6 tracking-tight">
+                    Introduza o inglês na rotina do seu filho de forma 
+                    <span class="text-sage underline decoration-sand decoration-4 underline-offset-4">natural e sem pressão</span>
+                </h1>
+                
+                <p data-aos="fade-up" data-aos-delay="300" class="text-lg md:text-xl leading-relaxed text-grayText mb-8 max-w-lg mx-auto md:mx-0">
+                    Um guia prático para mães e pais aproveitarem a primeira infância para ensinar um novo idioma, <strong>mesmo sem serem fluentes</strong>.
+                </p>
+
+                <!-- CTA -->
+                <div data-aos="fade-up" data-aos-delay="400" class="flex flex-col items-center md:items-start gap-3">
+                    <button onclick="goToCheckout()" class="btn-shine group bg-sage hover:bg-sageDark text-white text-lg md:text-xl font-semibold py-4 px-10 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-[0_10px_25px_rgb(107,144,128,0.3)] flex items-center gap-3">
+                        Quero acessar o guia agora
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <div class="flex items-center gap-2 text-xs text-sageLight font-medium mt-2">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> Compra segura e acesso imediato
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna da Imagem (Capa do PDF) -->
+            <div class="order-1 md:order-2 flex justify-center relative" data-aos="fade-left" data-aos-delay="200">
+                <!-- Efeito de fundo decorativo -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-sand/20 to-sage/20 rounded-full blur-3xl transform scale-75 animate-pulse"></div>
+                
+                <!-- 
+                     LOCAL PARA ADICIONAR A IMAGEM DA CAPA DO PDF 
+                     Substitua o src="..." pelo caminho da sua imagem (ex: src="imagens/capa-livro.png")
+                -->
+                <div class="relative w-full max-w-sm mx-auto animate-float">
+                    <!-- Placeholder Visual (Substitua toda a tag IMG abaixo pela sua imagem) -->
+                    <img 
+                        src="img/ChatGPT Image 1 de jan. de 2026, 23_48_26.png" 
+                        alt="Capa do Livro Inglês Natural" 
+                        class="w-full h-auto rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] transform rotate-[-3deg] hover:rotate-0 transition-transform duration-500 border-4 border-white"
+                    />
+                    
+                    <!-- Badge Flutuante -->
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                        <div class="bg-green-100 p-2 rounded-full">
+                            <i data-lucide="star" class="w-5 h-5 text-green-600 fill-current"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-semibold">Método Aprovado</p>
+                            <p class="text-sm font-bold text-dark">Por +1.000 mães</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Benefícios -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <!-- Elemento decorativo -->
+        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-cream to-transparent"></div>
+
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-2xl md:text-4xl font-bold text-dark mb-4">
+                    Você não precisa transformar sua casa em uma escola
+                </h2>
+                <p class="text-lg text-[#757575] max-w-2xl mx-auto">
+                    Muitas famílias desistem por acharem que precisam de aulas formais. O nosso método foca no <strong>vínculo</strong> e na rotina real.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Card 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col items-start text-left group hover:bg-[#FDFBF7] p-8 rounded-3xl transition-all duration-300 border border-transparent hover:border-[#EAEAEA] hover:shadow-xl hover:-translate-y-2">
+                    <div class="bg-[#FDFBF7] group-hover:bg-white w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-[#EAEAEA] transition-colors">
+                        <i data-lucide="smile" class="w-8 h-8 text-sand"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Aprenda brincando</h3>
+                    <p class="text-gray-500 leading-relaxed">Transforme momentos simples como o banho ou o almoço em oportunidades ricas de aprendizado, sem sobrecarregar a rotina.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col items-start text-left group hover:bg-[#FDFBF7] p-8 rounded-3xl transition-all duration-300 border border-transparent hover:border-[#EAEAEA] hover:shadow-xl hover:-translate-y-2">
+                    <div class="bg-[#FDFBF7] group-hover:bg-white w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-[#EAEAEA] transition-colors">
+                        <i data-lucide="music" class="w-8 h-8 text-sageLight"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Sons e Musicalização</h3>
+                    <p class="text-gray-500 leading-relaxed">Use músicas e rimas selecionadas para acostumar o ouvido da criança aos fonemas do inglês desde cedo.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col items-start text-left group hover:bg-[#FDFBF7] p-8 rounded-3xl transition-all duration-300 border border-transparent hover:border-[#EAEAEA] hover:shadow-xl hover:-translate-y-2">
+                    <div class="bg-[#FDFBF7] group-hover:bg-white w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-[#EAEAEA] transition-colors">
+                        <i data-lucide="book-open" class="w-8 h-8 text-[#7DA2A9]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Roteiros Prontos</h3>
+                    <p class="text-gray-500 leading-relaxed">Não sabe o que falar? Entregamos scripts práticos com frases do dia a dia e áudios para você treinar sua pronúncia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O que está incluso -->
+    <section class="py-24 bg-[#F0F7F9]/40 border-y border-[#EAEAEA]">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+            
+            <div class="flex-1 space-y-8" data-aos="fade-right">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark">
+                    O que você recebe ao acessar o material?
+                </h2>
+                <p class="text-grayText text-lg leading-relaxed">
+                    Um guia digital completo (PDF), direto ao ponto, desenhado especialmente para mães ocupadas que querem praticidade sem abrir mão da qualidade.
+                </p>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-gray-100 transform transition hover:scale-[1.02]">
+                        <div class="w-8 h-8 rounded-full bg-[#E5F0EB] flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4 text-sage"></i></div>
+                        <span class="text-dark font-medium">E-book com o método passo a passo</span>
+                    </li>
+                    <li class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-gray-100 transform transition hover:scale-[1.02]">
+                        <div class="w-8 h-8 rounded-full bg-[#E5F0EB] flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4 text-sage"></i></div>
+                        <span class="text-dark font-medium">Guia de vocabulário para rotina (banho, comida)</span>
+                    </li>
+                    <li class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-gray-100 transform transition hover:scale-[1.02]">
+                        <div class="w-8 h-8 rounded-full bg-[#E5F0EB] flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4 text-sage"></i></div>
+                        <span class="text-dark font-medium">Curadoria de músicas e livros infantis</span>
+                    </li>
+                    <li class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-gray-100 transform transition hover:scale-[1.02]">
+                        <div class="w-8 h-8 rounded-full bg-[#E5F0EB] flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4 text-sage"></i></div>
+                        <span class="text-dark font-medium">Áudios de suporte para checar sua pronúncia</span>
+                    </li>
+                </ul>
+
+                <button onclick="goToCheckout()" class="mt-8 bg-sage hover:bg-sageDark text-white px-8 py-4 rounded-full font-bold shadow-[0_10px_20px_rgba(107,144,128,0.2)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                    Sim, quero o material completo
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Coluna Visual do Produto -->
+            <div class="flex-1 flex justify-center w-full" data-aos="zoom-in">
+                <!-- 
+                     LOCAL PARA ADICIONAR IMAGEM "POR DENTRO" OU OUTRO MOCKUP 
+                -->
+                <div class="relative w-full max-w-md">
+                     <!-- Placeholder Visual (Substitua pela imagem) -->
+                     <img 
+                        src="img/{23DBA649-2C08-43CB-81EE-0D330F66CD54}.png" 
+                        alt="Visualização do Material" 
+                        class="w-full h-auto rounded-2xl shadow-2xl border border-gray-100 transform rotate-2 hover:rotate-0 transition-all duration-500"
+                    />
+                    
+                    <!-- Selo de Garantia Flutuante -->
+                    <div class="absolute -top-6 -left-6 bg-sand text-white w-20 h-20 flex flex-col items-center justify-center rounded-full font-bold shadow-lg z-10 animate-pulse border-4 border-white">
+                        <span class="text-xs uppercase">Acesso</span>
+                        <span>Vitalício</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Para quem é / Não é -->
+    <section class="py-24 bg-cream">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                
+                <!-- Para quem é -->
+                <div data-aos="fade-right" class="bg-white p-8 md:p-10 rounded-[2rem] border border-sand/20 shadow-[0_10px_40px_-10px_rgba(230,199,156,0.2)] hover:shadow-lg transition-all">
+                    <h3 class="text-xl font-bold text-sage mb-8 flex items-center gap-3">
+                        <div class="bg-[#E5F0EB] p-2 rounded-full"><i data-lucide="check" class="w-5 h-5"></i></div>
+                        Para quem é este guia
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-sage shrink-0 mt-0.5 fill-green-50"></i>
+                            <span class="text-grayText font-medium">Mães e pais que desejam introduzir o inglês cedo e com afeto.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-sage shrink-0 mt-0.5 fill-green-50"></i>
+                            <span class="text-grayText font-medium">Famílias que buscam uma educação respeitosa, longe de telas excessivas.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-sage shrink-0 mt-0.5 fill-green-50"></i>
+                            <span class="text-grayText font-medium">Quem tem nível básico ou intermediário e quer 'destravar'.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Para quem não é -->
+                <div data-aos="fade-left" class="bg-[#F8F8F8] p-8 md:p-10 rounded-[2rem] border border-gray-100">
+                    <h3 class="text-xl font-bold text-[#A0AEC0] mb-8 flex items-center gap-3">
+                        <div class="bg-gray-200 p-2 rounded-full"><i data-lucide="x" class="w-5 h-5"></i></div>
+                        Para quem não é
+                    </h3>
+                    <ul class="space-y-6 opacity-80">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="x-circle" class="w-6 h-6 text-[#A0AEC0] shrink-0 mt-0.5"></i>
+                            <span class="text-gray-500">Quem procura fluência imediata ou promessas milagrosas.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="x-circle" class="w-6 h-6 text-[#A0AEC0] shrink-0 mt-0.5"></i>
+                            <span class="text-gray-500">Quem quer terceirizar o ensino para tablets.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="x-circle" class="w-6 h-6 text-[#A0AEC0] shrink-0 mt-0.5"></i>
+                            <span class="text-gray-500">Quem busca regras gramaticais rígidas.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantia -->
+    <section class="py-20 bg-white border-t border-gray-50" data-aos="fade-up">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="w-20 h-20 bg-[#F4F9F6] text-sage rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm animate-pulse">
+                <i data-lucide="shield-check" class="w-10 h-10"></i>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-dark mb-4">Sua tranquilidade garantida</h3>
+            <p class="text-[#757575] leading-relaxed mb-8 text-lg">
+                Acreditamos tanto na qualidade e delicadeza deste material que oferecemos garantia incondicional de 7 dias. 
+                Se você sentir que não é o momento, devolvemos seu investimento sem burocracia.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="py-24 bg-dark text-white text-center px-6 rounded-t-[50px] md:rounded-t-[100px] mt-10 relative overflow-hidden">
+        <!-- Detalhe de fundo -->
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto relative z-10">
+            <div class="flex justify-center mb-8" data-aos="zoom-in">
+                <i data-lucide="heart" class="w-12 h-12 text-sand fill-current animate-bounce"></i>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight" data-aos="fade-up">
+                O futuro do seu filho começa com um pequeno passo hoje.
+            </h2>
+            <p class="text-gray-300 mb-12 text-lg md:text-xl" data-aos="fade-up" data-aos-delay="100">
+                Acesso imediato, seguro e vitalício por um valor especial.
+            </p>
+            
+            <button onclick="goToCheckout()" class="btn-shine bg-sand hover:bg-[#D4B58B] text-dark text-xl font-bold py-5 px-12 rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_40px_rgba(230,199,156,0.3)] flex items-center gap-3 mx-auto" data-aos="zoom-in" data-aos-delay="200">
+                Quero acessar o guia
+                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="mt-16 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-center items-center gap-6 text-sm text-gray-400">
+                <span class="flex items-center gap-2"><i data-lucide="lock" class="w-4 h-4 text-sand"></i> Pagamento seguro via Kiwify</span>
+                <span class="hidden md:inline text-gray-600">•</span>
+                <span>© 2024 Inglês Natural em Casa</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Javascript -->
+    <!-- Scripts de Ícones e Animação -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializa ícones
+        lucide.createIcons();
+
+        // Inicializa animações (AOS)
+        AOS.init({
+            duration: 800, // Duração da animação em ms
+            once: true,    // Animar apenas na primeira vez que rolar
+            offset: 100,   // Começar animação um pouco antes do elemento aparecer
+            easing: 'ease-out-cubic'
+        });
+
+        // Função checkout
+        function goToCheckout() {
+            window.open("https://pay.kiwify.com.br/OIokhGk", "_blank");
+        }
+    </script>
+</body>
+</html>

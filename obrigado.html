@@ -10,11 +10,180 @@
 
   gtag('config', 'AW-17916164077');
 </script>
-  <meta charset="UTF-8">
-  <title>Compra concluída</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado! - Inglês Natural em Casa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --verde-principal: #729384; 
+            --azul-escuro: #2D3E4E;    
+            --fundo-creme: #F9F8F6;    
+            --bege-detalhe: #E9E4DE;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--fundo-creme);
+            margin: 0;
+            color: var(--azul-escuro);
+        }
+
+        h1, h2 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--azul-escuro);
+        }
+
+        .cartao {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(114, 147, 132, 0.1);
+        }
+
+        .botao-principal {
+            background-color: var(--verde-principal);
+            color: white !important;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .botao-principal:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(114, 147, 132, 0.3);
+        }
+
+        .balao-animado {
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+        @keyframes flutuar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .tag-verde {
+            background-color: #E2ECE8;
+            color: var(--verde-principal);
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
-<body>
-  <h1>Compra realizada com sucesso!</h1>
-  <p>Obrigado por adquirir o curso.</p>
+<body class="flex flex-col min-h-screen">
+
+    <div class="h-2 bg-gray-200 w-full">
+        <div class="h-full bg-[#729384] w-full"></div>
+    </div>
+
+    <main class="flex-grow flex items-center justify-center px-4 py-12">
+        <div class="max-w-2xl w-full text-center">
+            
+            <div class="mb-4">
+                <span class="tag-verde">Compra aprovada com sucesso!</span>
+            </div>
+
+            <div class="mb-8 balao-animado inline-block">
+                <div class="bg-white p-6 rounded-full shadow-lg border-2 border-[#E9E4DE]">
+                    <span class="text-5xl">📖</span>
+                </div>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl mb-4 leading-tight">Sua aventura bilíngue começou!</h1>
+            <p class="text-xl text-gray-600 mb-8 px-4 font-medium">
+                Parabéns! Você acaba de dar um passo incrível para o futuro do seu filho.
+            </p>
+
+            <div class="cartao p-8 md:p-12 border-b-8 border-[#729384]">
+                <h2 class="text-2xl mb-8">Como acessar o guia?</h2>
+                
+                <div class="space-y-8 text-left max-w-sm mx-auto">
+                    <div class="flex items-center gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 bg-[#F1F5F3] rounded-full flex items-center justify-center text-2xl">📧</div>
+                        <div>
+                            <p class="font-bold">E-mail de Acesso</p>
+                            <p class="text-sm text-gray-500">Enviamos os dados para o seu e-mail cadastrado.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 bg-[#F1F5F3] rounded-full flex items-center justify-center text-2xl">🔍</div>
+                        <div>
+                            <p class="font-bold">Verifique tudo</p>
+                            <p class="text-sm text-gray-500">Olhe também na aba "Promoções" ou "Spam".</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 bg-[#F1F5F3] rounded-full flex items-center justify-center text-2xl">🌱</div>
+                        <div>
+                            <p class="font-bold">Hora de Começar</p>
+                            <p class="text-sm text-gray-500">Entre na plataforma e comece a introduzir o inglês hoje!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <!-- Ajustado para garantir o redirecionamento com target blank e link absoluto -->
+                    <a href="https://members.kiwify.com/?club=1222da87-3424-4a2e-b26c-2ff74ebc20d8" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="botao-principal px-12 py-5 text-xl font-bold w-full md:w-auto shadow-md">
+                        Quero acessar o guia agora →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-gray-400 text-sm">
+        <p>Compra segura e acesso imediato • Inglês Natural em Casa</p>
+    </footer>
+
+    <script>
+        function dispararConfetes() {
+            try {
+                const duration = 2 * 1000;
+                const animationEnd = Date.now() + duration;
+                const colors = ['#729384', '#2D3E4E', '#E9E4DE'];
+
+                (function frame() {
+                    const timeLeft = animationEnd - Date.now();
+                    if (timeLeft <= 0) return;
+
+                    confetti({
+                        particleCount: 2,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0, y: 0.6 },
+                        colors: colors
+                    });
+                    
+                    confetti({
+                        particleCount: 2,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1, y: 0.6 },
+                        colors: colors
+                    });
+
+                    requestAnimationFrame(frame);
+                }());
+            } catch (e) {
+                console.log("Erro ao disparar confetes:", e);
+            }
+        }
+
+        window.addEventListener('load', dispararConfetes);
+    </script>
 </body>
 </html>

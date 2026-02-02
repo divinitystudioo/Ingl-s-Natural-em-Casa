@@ -342,10 +342,17 @@ gtag('config', 'AW-17916164077');
             offset: 100,
             easing: 'ease-out-cubic'
         });
-        function goToCheckout() {
-            window.open("https://pay.kiwify.com.br/OIokhGk", "_blank");
+function goToCheckout() {
+  gtag('event', 'checkout_click', {
+    event_category: 'funil',
+    event_label: 'botao_checkout'
+  });
+
+  window.open("https://pay.kiwify.com.br/OIokhGk", "_blank");
+}
         }
     </script>
 </body>
 </html>
+
 

@@ -333,26 +333,31 @@ gtag('config', 'AW-17916164077');
     </section>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        lucide.createIcons();
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100,
-            easing: 'ease-out-cubic'
-        });
-function goToCheckout() {
-  gtag('event', 'checkout_click', {
-    event_category: 'funil',
-    event_label: 'botao_checkout'
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  lucide.createIcons();
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100,
+    easing: 'ease-out-cubic'
   });
 
-  window.open("https://pay.kiwify.com.br/OIokhGk", "_blank");
-}
-    </script>
+  function goToCheckout() {
+
+    // Evento GA4
+    gtag('event', 'checkout_click', {
+      button_name: 'botao_checkout',
+      page_location: window.location.href
+    });
+
+    // abrir checkout
+    window.open("https://pay.kiwify.com.br/OIokhGk", "_blank");
+  }
+</script>
 </body>
 </html>
+
 
 
 
